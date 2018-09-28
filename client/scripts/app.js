@@ -11,6 +11,9 @@ var App = {
     RoomsView.initialize();
     MessagesView.initialize();
 
+    var newMessage = Messages.createMessage('LT','Where do we go for','default');
+    App.send(newMessage);
+
     // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner);
@@ -20,10 +23,17 @@ var App = {
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // examine the response from the server request:
-      console.log(data);
 
+      Messages.parseMessage(data);
+      console.log(data);
       callback();
     });
+  },
+
+  send: function(message) {
+
+    Parse.create(message);
+    
   },
 
   startSpinner: function() {
