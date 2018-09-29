@@ -11,7 +11,7 @@ var App = {
     RoomsView.initialize();
     MessagesView.initialize();
 
-    var newMessage = Messages.createMessage('LT','Where do we go for','default');
+    var newMessage = Messages.createMessage('LT','Im super hungry','default');
     App.send(newMessage);
 
     // Fetch initial batch of messages
@@ -24,7 +24,7 @@ var App = {
     Parse.readAll((data) => {
       // examine the response from the server request:
 
-      Messages.parseMessage(data);
+      // Messages.parseMessage(data);
       console.log(data);
       callback();
     });
