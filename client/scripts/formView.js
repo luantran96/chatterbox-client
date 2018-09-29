@@ -10,7 +10,7 @@ var FormView = {
   handleSubmit: function(event) {
     // Stop the browser from submitting the form
     let inputText = FormView.$message[0].value;
-    inputText = encodeURI(inputText);
+    FormView.$message[0].value = '';
     event.preventDefault();
     console.log(inputText);
 

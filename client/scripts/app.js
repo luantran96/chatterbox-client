@@ -11,9 +11,6 @@ var App = {
     RoomsView.initialize();
     MessagesView.initialize();
 
-    //var newMessage = Messages.createMessage('LT','Im super hungry','default');
-    //App.send(newMessage);
-
     // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner);
@@ -24,13 +21,11 @@ var App = {
     Parse.readAll((data) => {
       // examine the response from the server request:
       var currentlySelectedRoom = $('.RoomDropDown :selected').text();
-      console.log(data);
-      for(var i = 0 ; i < 50; i++){
+
+      for(var i = data.results.length-1 ; i > 0; i--){
       
         if(currentlySelectedRoom === data.results[i].roomname){
-          // Only add in html it matches room name
-          console.log(data.results[i]);
-          //MessagesView.renderMessage(data.results[i]); 
+          MessagesView.renderMessage(data.results[i]); 
         }
 
       }

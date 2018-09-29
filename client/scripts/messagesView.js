@@ -2,7 +2,15 @@ var MessagesView = {
 
   $chats: $('#chats'),
 
+
   initialize: function() {	
+      
+    $('.Refresh').click(function () {
+
+      $('#chats').empty();
+      App.fetch();
+      
+    });
 
   },
 
