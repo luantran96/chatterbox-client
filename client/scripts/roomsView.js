@@ -9,7 +9,6 @@ var RoomsView = {
         
       $('#chats').empty();
       App.fetch();
-      Friends.render();
 
     });
 
