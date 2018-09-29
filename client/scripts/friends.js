@@ -1,10 +1,14 @@
 var Friends = {
 
-  friends: {},
+  friends: JSON.parse(window.localStorage.getItem('friends')) || {},
 
   toggleStatus: function(newFriend) {
    
-    Friends.friends[newFriend] = Friends.friends[newFriend] ? !Friends.friends[newFriend] : true;
+  // 
+    Friends.friends[newFriend] = Friends.friends[newFriend] ?
+      !Friends.friends[newFriend] : true;
+    window.localStorage.setItem('friends', JSON.stringify(Friends.friends));
+  
     console.log(Friends.friends);
   },
 
@@ -14,12 +18,8 @@ var Friends = {
       
       var newFriend = $message.children().first().text().trim();
 
-      // FIX THIS TOMORROW !!!
-      ////////////////////////
-      /////////////////////////////////////////////////////////////
       if (!Friends.friends[newFriend]) {
         Friends.highlightFriends(newFriend);
-        //$message.addClass('trueFriend');
       } else {
         Friends.unfriendFriends(newFriend);
       }
@@ -29,6 +29,16 @@ var Friends = {
 
     });
   },
+
+  render: function() {
+    _.each(Friends.friends, function(isFriend, friend) {
+      console.log('This is friend:', friend);
+      if (isFriend) {
+        Friends.highlightFriends(friend);
+      }
+    });
+  },
+
   highlightFriends: function(newFriend) {
 
     var $newFriendMessages = $('.' + newFriend);
@@ -41,7 +51,12 @@ var Friends = {
   },
 
   unfriendFriends: function(newFriend) {
-  
-  
+
+    var $newFriendMessages = $('.' + newFriend);
+    $newFriendMessages.each(function(index, friendDOMelement) {
+      var $friendDOMelement = $(friendDOMelement);
+      $friendDOMelement.removeClass('trueFriend');
+      console.log('inside each', $friendDOMelement);
+    });  
   }
 };

@@ -6,10 +6,10 @@ var RoomsView = {
   initialize: function() {
 
     $('select').on('change', function(e) {
-
-      console.log(this.value);        
+        
       $('#chats').empty();
       App.fetch();
+      Friends.render();
 
     });
 

@@ -23,5 +23,6 @@ var MessagesView = {
     let $message = $(MessageView.render(message));
     Friends.addListener($message);
     MessagesView.$chats.prepend($message);
+    Friends.render();
   }
 };
