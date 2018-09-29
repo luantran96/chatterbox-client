@@ -18,10 +18,10 @@ var Friends = {
       ////////////////////////
       /////////////////////////////////////////////////////////////
       if (!Friends.friends[newFriend]) {
-        highlightFriends(newFriend);
+        Friends.highlightFriends(newFriend);
         //$message.addClass('trueFriend');
       } else {
-              
+        Friends.unfriendFriends(newFriend);
       }
 
       console.log('added listener to:', newFriend);
@@ -29,9 +29,19 @@ var Friends = {
 
     });
   },
-  highlightFriends: function() {
+  highlightFriends: function(newFriend) {
 
-          
+    var $newFriendMessages = $('.' + newFriend);
+    $newFriendMessages.each(function(index, friendDOMelement) {
+      var $friendDOMelement = $(friendDOMelement);
+      $friendDOMelement.addClass('trueFriend');
+      console.log('inside each', $friendDOMelement);
+    });
 
+  },
+
+  unfriendFriends: function(newFriend) {
+  
+  
   }
 };
