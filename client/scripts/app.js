@@ -22,7 +22,7 @@ var App = {
       // examine the response from the server request:
       var currentlySelectedRoom = $('.RoomDropDown :selected').text();
 
-      for(var i = data.results.length-1 ; i > 0; i--){
+      for (var i = data.results.length-1; i > 0;i--) {
       
         if(currentlySelectedRoom === data.results[i].roomname){
           MessagesView.renderMessage(data.results[i]); 

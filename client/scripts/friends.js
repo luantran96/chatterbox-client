@@ -17,15 +17,21 @@ var Friends = {
       // FIX THIS TOMORROW !!!
       ////////////////////////
       /////////////////////////////////////////////////////////////
-      if(!Friends.friends[newFriend]){
-        $message.addClass('trueFriend');
-      }else{
-        $message.removeClass('trueFriend');
-        }
+      if (!Friends.friends[newFriend]) {
+        highlightFriends(newFriend);
+        //$message.addClass('trueFriend');
+      } else {
+              
+      }
 
       console.log('added listener to:', newFriend);
       Friends.toggleStatus(newFriend);
 
     });
+  },
+  highlightFriends: function() {
+
+          
+
   }
 };
