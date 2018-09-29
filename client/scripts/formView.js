@@ -18,7 +18,7 @@ var FormView = {
     console.log(currentlySelectedRoom);
     var newMessage = Messages.createMessage(App.username, inputText, currentlySelectedRoom);
     console.log(newMessage);
-
+    App.send(newMessage);
     MessagesView.renderMessage(newMessage);
   },
 
