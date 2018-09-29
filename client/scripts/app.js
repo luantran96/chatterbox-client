@@ -23,9 +23,23 @@ var App = {
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // examine the response from the server request:
+      var currentlySelectedRoom = $('.RoomDropDown :selected').text();
+       console.log(data);
+      for(var i = 0 ; i < 50; i++){
 
-      // Messages.parseMessage(data);
-      console.log(data);
+          
+          if(currentlySelectedRoom === data.results[i].roomname){
+            // Only add in html it matches room name
+            console.log(data.results[i]);
+            //MessagesView.renderMessage(data.results[i]); 
+          }
+
+      }
+
+                  
+
+      
+
       callback();
     });
   },

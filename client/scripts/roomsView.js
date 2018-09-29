@@ -7,14 +7,15 @@ var RoomsView = {
 
     $('select').on('change', function(e) {
 
-        console.log(this.value);        
-         $('#chats').empty();
-         
+      console.log(this.value);        
+      $('#chats').empty();
+      App.fetch();
+
     });
 
     RoomsView.$button.click(function() {
 
-      let newRoom = prompt("Enter new room name ");
+      let newRoom = prompt('Enter new room name');
       console.log(newRoom);
       Rooms.add(newRoom);
       RoomsView.renderRoom(newRoom);
