@@ -30,10 +30,6 @@ var App = {
 
       }
 
-                  
-
-      
-
       callback();
     });
   },
