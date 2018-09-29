@@ -5,11 +5,19 @@ var RoomsView = {
 
   initialize: function() {
 
+    $('select').on('change', function(e) {
+
+        console.log(this.value);        
+         $('#chats').empty();
+         
+    });
+
     RoomsView.$button.click(function() {
 
       let newRoom = prompt("Enter new room name ");
       console.log(newRoom);
       Rooms.add(newRoom);
+      RoomsView.renderRoom(newRoom);
     });
   },
 

@@ -5,7 +5,7 @@ var Rooms = {
   add: function(roomName) {
     roomName = roomName.trim();
     roomName = encodeURI(roomName);
-    Rooms.rooms[roomName.trim()] = roomName;
+    Rooms.rooms[(roomName||'').trim()] = roomName;
     console.log(Rooms.rooms);
   }
 };
